@@ -1,0 +1,17 @@
+Script started on 2019-04-13 20:48:27-0700
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ pwd
+/home/bissbiss/ECE373/HW1
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ ls -l
+total 0
+-rw-r--r-- 1 bissbiss bissbiss 0 Apr 13 20:48 hw1Partb
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ ls
+hw1Partb
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ mkdir ece363
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ cd ece363
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1/ece363[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1/ece363[00m$ cd ..
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ rmdir ece363
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ ls
+hw1Partb
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW1[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW1[00m$ exit
+
+Script done on 2019-04-13 20:49:45-0700
