@@ -1,0 +1,166 @@
+Script started on 2019-04-22 16:19:57-0700
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ sudo insmod[K[K[K[K[K[K[K[K[K[K[Kls
+[0m[01;32mcha[0m  hw2.c  hw2Script  Makefile  part3.c
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ make
+make -C /lib/modules/4.18.0-17-generic/build SUBDIRS=/home/bissbiss/ECE373/HW2 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.18.0-17-generic'
+  CC [M]  /home/bissbiss/ECE373/HW2/hw2.o
+In file included from [01m[K./include/linux/printk.h:7:0[m[K,
+                 from [01m[K./include/linux/kernel.h:14[m[K,
+                 from [01m[K./include/linux/list.h:9[m[K,
+                 from [01m[K./include/linux/module.h:9[m[K,
+                 from [01m[K/home/bissbiss/ECE373/HW2/hw2.c:6[m[K:
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:[m[K In function ‘[01m[Kexample5_read[m[K’:
+[01m[K./include/linux/kern_levels.h:5:18:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 2 has type ‘[01m[Kchar *[m[K’ [[01;35m[K-Wformat=[m[K]
+ #define KERN_SOH [01;35m[K"[m[K\001"  /* ASCII Start Of Header */
+                  [01;35m[K^[m[K
+[01m[K./include/linux/kern_levels.h:14:19:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KKERN_SOH[m[K’
+ #define KERN_INFO [01;36m[KKERN_SOH[m[K "6" /* informational */
+                   [01;36m[K^~~~~~~~[m[K
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:65:9:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KKERN_INFO[m[K’
+  printk([01;36m[KKERN_INFO[m[K "buf is: %d\n", buf);
+         [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:65:29:[m[K [01;36m[Knote: [m[Kformat string is defined here
+  printk(KERN_INFO "buf is: [01;36m[K%d[m[K\n", buf);
+                            [01;36m[K~^[m[K
+                            [32m[K%s[m[K
+In file included from [01m[K./include/linux/printk.h:7:0[m[K,
+                 from [01m[K./include/linux/kernel.h:14[m[K,
+                 from [01m[K./include/linux/list.h:9[m[K,
+                 from [01m[K./include/linux/module.h:9[m[K,
+                 from [01m[K/home/bissbiss/ECE373/HW2/hw2.c:6[m[K:
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:[m[K In function ‘[01m[Kexample5_write[m[K’:
+[01m[K./include/linux/kern_levels.h:5:18:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 2 has type ‘[01m[Kchar *[m[K’ [[01;35m[K-Wformat=[m[K]
+ #define KERN_SOH [01;35m[K"[m[K\001"  /* ASCII Start Of Header */
+                  [01;35m[K^[m[K
+[01m[K./include/linux/kern_levels.h:14:19:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KKERN_SOH[m[K’
+ #define KERN_INFO [01;36m[KKERN_SOH[m[K "6" /* informational */
+                   [01;36m[K^~~~~~~~[m[K
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:101:9:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KKERN_INFO[m[K’
+  printk([01;36m[KKERN_INFO[m[K "kbus addr: %d\n", kern_buf);
+         [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:101:32:[m[K [01;36m[Knote: [m[Kformat string is defined here
+  printk(KERN_INFO "kbus addr: [01;36m[K%d[m[K\n", kern_buf);
+                               [01;36m[K~^[m[K
+                               [32m[K%s[m[K
+In file included from [01m[K./include/linux/printk.h:7:0[m[K,
+                 from [01m[K./include/linux/kernel.h:14[m[K,
+                 from [01m[K./include/linux/list.h:9[m[K,
+                 from [01m[K./include/linux/module.h:9[m[K,
+                 from [01m[K/home/bissbiss/ECE373/HW2/hw2.c:6[m[K:
+[01m[K./include/linux/kern_levels.h:5:18:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 2 has type ‘[01m[Kchar *[m[K’ [[01;35m[K-Wformat=[m[K]
+ #define KERN_SOH [01;35m[K"[m[K\001"  /* ASCII Start Of Header */
+                  [01;35m[K^[m[K
+[01m[K./include/linux/kern_levels.h:14:19:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KKERN_SOH[m[K’
+ #define KERN_INFO [01;36m[KKERN_SOH[m[K "6" /* informational */
+                   [01;36m[K^~~~~~~~[m[K
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:109:9:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KKERN_INFO[m[K’
+  printk([01;36m[KKERN_INFO[m[K "Userspace wrote \"%d\" to us\n", kern_buf);
+         [01;36m[K^~~~~~~~~[m[K
+[01m[K/home/bissbiss/ECE373/HW2/hw2.c:109:39:[m[K [01;36m[Knote: [m[Kformat string is defined here
+  printk(KERN_INFO "Userspace wrote \"[01;36m[K%d[m[K\" to us\n", kern_buf);
+                                      [01;36m[K~^[m[K
+                                      [32m[K%s[m[K
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/bissbiss/ECE373/HW2/hw2.mod.o
+  LD [M]  /home/bissbiss/ECE373/HW2/hw2.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.18.0-17-generic'
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ ls
+[0m[01;32mcha[0m    hw2.ko     hw2.mod.o  hw2Script  modules.order   part3.c
+hw2.c  hw2.mod.c  hw2.o      Makefile   Module.symvers
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ make
+make -C /lib/modules/4.18.0-17-generic/build SUBDIRS=/home/bissbiss/ECE373/HW2 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.18.0-17-generic'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: Leaving directory '/usr/src/linux-headers-4.18.0-17-generic'
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ sudo insmod hw2.ko
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ ./cha
+fd = 3
+int sys is 40 
+int sys is now 40 and sz is 4 and rz is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ ./cha[K[K[K[K[Ksudo rmmod hw2
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ sudo insmod hw2.ko testPara=33
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ ./cha
+fd = 3
+int sys is 40 
+int sys is now 40 and sz is 4 and rz is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ ./chasudo insmod hw2.ko testPara=33[16Prmmod hw2[9P./chasudo insmod hw2.komake[K[2Plsmake[2Plssudo sucat /sys/module/hw2/initstatels /sys/module/hw2/parameters[K/parameterscat /sys/module/hw2/initstatesudo su[Kcat /sys/module/hw2/initstatels /sys/module/hw2/parameters[K/parameterscat /sys/module/hw2/initstatesudo su[Kcat /sys/module/hw2/initstatels /sys/module/hw2/parameters[K/parameters/testPar a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C /sys/module/hw2/parameters/testPara [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P /sys/module/hw2/parameters/testPara
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc /sys/module/hw2/parameters/testPara [A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [Ca /sys/module/hw2/parameters/testParaa[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [C[Ct /sys/module/hw2/parameters/testPara[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [C[C[C
+
+cat: /sys/module/hw2/parameters/testPara: Permission denied
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ cat /sys/module/hw2/parameters/testParra[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscat /sys/module/hw2/parameters/testPara[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [Cucat /sys/module/hw2/parameters/testPara[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [C[Cdcat /sys/module/hw2/parameters/testPara[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [C[C[Cocat /sys/module/hw2/parameters/testPara[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [C[C[C[C cat /sys/module/hw2/parameters/testPara[A]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ [C[C[C[C[C
+
+33
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ ls [K[K[Kcat /proc/devices
+Character devices:
+  1 mem
+  4 /dev/vc/0
+  4 tty
+  4 ttyS
+  5 /dev/tty
+  5 /dev/console
+  5 /dev/ptmx
+  5 ttyprintk
+  6 lp
+  7 vcs
+ 10 misc
+ 13 input
+ 21 sg
+ 29 fb
+ 89 i2c
+ 99 ppdev
+108 ppp
+116 alsa
+128 ptm
+136 pts
+180 usb
+189 usb_device
+204 ttyMAX
+226 drm
+241 HW2_WOOOOW
+242 aux
+243 hidraw
+244 bsg
+245 hmm_device
+246 watchdog
+247 ptp
+248 pps
+249 rtc
+250 dax
+251 dimmctl
+252 ndctl
+253 tpm
+254 gpiochip
+
+Block devices:
+  7 loop
+  8 sd
+  9 md
+ 11 sr
+ 65 sd
+ 66 sd
+ 67 sd
+ 68 sd
+ 69 sd
+ 70 sd
+ 71 sd
+128 sd
+129 sd
+130 sd
+131 sd
+132 sd
+133 sd
+134 sd
+135 sd
+253 device-mapper
+254 mdp
+259 blkext
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ sduo [K[K[K[Kudo rmmod hw2
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ sudo insmod hw2.ko
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ sudo insmod hw2.ko[4Prmmod hw2cat /proc/devicessudo cat /sys/module/hw2/parameters/teestPara
+15
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW2[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW2[00m$ exit
+
+Script done on 2019-04-22 16:24:12-0700
