@@ -1,0 +1,160 @@
+Script started on 2019-05-01 04:23:30-0700
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo ./ledmon -s 0000:00:03.0 -L[K[5P./ledmonls[Kmake[2Pls./ledmonsudo ./ledmon -s 0000:00:03.0 -L[Ksudo ./ledmon -s 0000:00:03.0 -L[K[5P./ledmonls[Kmake./chadmesg | tail -n 20sudo insmod hw3.ko[6Pmake default[2Pcleansudo rmmod hw3dmesg | tail -n 20./cha[Kls -l /dev/BINKY[9@sudo chmod 666[C[C[C[C[C[C[C[C[C[C[C[5P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pls -l[C[C[C[C[C[C[C[C[C[C[C[K[5P./chagcc -g -o cha part3.c./cha[Kdmesg | tail -n 20ls /sys/module/hw3[Kdevices[Kpci -s 00:03.0 -vv./cha[Klspci -s 00:03.0 -vv
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+	Subsystem: Intel Corporation PRO/1000 MT Desktop Adapter
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz+ UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 64 (63750ns min)
+	Interrupt: pin A routed to IRQ 19
+	Region 0: Memory at f2200000 (32-bit, non-prefetchable) [size=128K]
+	Region 2: I/O ports at d020 [size=8]
+	Capabilities: <access denied>
+	Kernel driver in use: e1000
+	Kernel modules: e1000
+
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ ls
+hw3.c      led_cleanup_script.sh  ledmon.txt  userSpace.c
+hw3Script  ledmon.c               Makefile
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo su
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW3root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW3# echo 0000:00:03.0 > /sys/module//e1000/drivers/pci\:e1000/unbind
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW3root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW3# exit
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ make default
+make -C /lib/modules/4.18.0-18-generic/build SUBDIRS=/home/bissbiss/ECE373/HW3 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.18.0-18-generic'
+  CC [M]  /home/bissbiss/ECE373/HW3/hw3.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/bissbiss/ECE373/HW3/hw3.mod.o
+  LD [M]  /home/bissbiss/ECE373/HW3/hw3.ko
+make[1]: Leaving directory '/usr/src/linux-headers-4.18.0-18-generic'
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ make cha
+gcc -g -o cha userSpace.c
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ ls
+[0m[01;32mcha[0m     hw3.mod.c  hw3Script              ledmon.txt     Module.symvers
+hw3.c   hw3.mod.o  led_cleanup_script.sh  Makefile       userSpace.c
+hw3.ko  hw3.o      ledmon.c               modules.order
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo insmod hw3.ko
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo insmod hw3.kols[Kmake chadefault[5Psudo suls[Kpci -s 00:03.0 -vvsudo ./ledmon -s 0000:00:03.0 -L[K[5P./ledmonls[K./ledmonsudo ./ledmon -s 0000:00:03.0 -L[12Plspci -s 00:03.0 -vvsudo ./ledmon -s 0000:00:03.0 -L[K[5P./ledmonls[Kmake./chadmesg | tail -n 20sudo insmod hw3.kodmesg | tail -n 20
+[    6.823601] 11:07:50.730422 main     VBoxService 6.0.6 r130049 (verbosity: 0) linux.amd64 (Apr 16 2019 11:55:19) release log
+               11:07:50.730430 main     Log opened 2019-05-01T11:07:50.729912000Z
+[    6.823651] 11:07:50.730516 main     OS Product: Linux
+[    6.823677] 11:07:50.730545 main     OS Release: 4.18.0-18-generic
+[    6.823703] 11:07:50.730570 main     OS Version: #19~18.04.1-Ubuntu SMP Fri Apr 5 10:22:13 UTC 2019
+[    6.823739] 11:07:50.730596 main     Executable: /opt/VBoxGuestAdditions-6.0.6/sbin/VBoxService
+               11:07:50.730597 main     Process ID: 945
+               11:07:50.730597 main     Package type: LINUX_64BITS_GENERIC
+[    6.824423] 11:07:50.731283 main     6.0.6 r130049 started. Verbose level = 0
+[    6.824984] 11:07:50.731793 main     vbglR3GuestCtrlDetectPeekGetCancelSupport: Supported (#1)
+[   10.710303] rfkill: input handler disabled
+[   13.975947] ISO 9660 Extensions: Microsoft Joliet Level 3
+[   13.985040] ISO 9660 Extensions: RRIP_1991A
+[ 1108.408666] ECE373 HW3 loading... Test Parameter = 15
+[ 1108.408667] Allocated 1 devices at major: 241
+[ 1108.408680] Blink Driver PCI Probe called
+[ 1108.408680] Barmask 1
+[ 1108.408682] mmio start: f2200000
+[ 1108.408682] mmio len: 20000
+[ 1108.408731] Initial starting led val is 7068302
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo mknod /dev/blinkDriver c 240 0[1P 01 0[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1P[1@B[1@I[1@N[1@K[1@Y
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo mknod /dev/BINKY c 241 0[11Pdmesg | tail -n 20sudo insmod hw3.kols[Ksudo insmod hw3.kodmesg | tail -n 20sudo insmod hw3.kols[Kmake chadefault[5Psudo suls[Kpci -s 00:03.0 -vvsudo ./ledmon -s 0000:00:03.0 -L[12Plspci -s 00:03.0 -vv
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+	Subsystem: Intel Corporation PRO/1000 MT Desktop Adapter
+	Control: I/O+ Mem+ BusMaster- SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz+ UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Interrupt: pin A routed to IRQ 19
+	Region 0: Memory at f2200000 (32-bit, non-prefetchable) [size=128K]
+	Region 2: I/O ports at d020 [size=8]
+	Capabilities: <access denied>
+	Kernel driver in use: Blink Driver
+	Kernel modules: e1000
+
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ ./cha
+fd = -1
+0 is starting led_val
+0 is updated led_val
+wz is -1, wz2 is -1, rz is -1 and rz2 is -1
+Error Number  9
+Program: Bad file descriptor
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo chmod 666 /dev/BINKY
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo chmod 666 /dev/BINKY./cha[K
+fd = 3
+117867266 is starting led_val
+128 is updated led_val
+wz is 4, wz2 is 4, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ ./cha
+fd = 3
+0 is starting led_val
+128 is updated led_val
+wz is 4, wz2 is 4, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo rmmod hw3
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo rmmod hw3[9P./chasudo chmod 666 /dev/BINKY./cha[Klspci -s 00:03.0 -vvsudo mknod /dev/BINKY c 241 0[11Pdmesg | tail -n 20
+[ 1108.408667] Allocated 1 devices at major: 241
+[ 1108.408680] Blink Driver PCI Probe called
+[ 1108.408680] Barmask 1
+[ 1108.408682] mmio start: f2200000
+[ 1108.408682] mmio len: 20000
+[ 1108.408731] Initial starting led val is 7068302
+[ 1287.823739] /dev node successfully opened!
+[ 1287.823785] User read() from us 117867266
+[ 1287.823790] /dev node successfully opened!
+[ 1287.823795] led_current_val is "128"
+[ 1287.823799] User read() from us 128
+[ 1289.823330] led_current_val is "0"
+[ 1304.698702] /dev node successfully opened!
+[ 1304.698748] User read() from us 0
+[ 1304.698753] /dev node successfully opened!
+[ 1304.698758] led_current_val is "128"
+[ 1304.698762] User read() from us 128
+[ 1306.698411] led_current_val is "0"
+[ 1347.584635] Blink Driver PCI remove called
+[ 1347.584663] ECE373 HW3 module unloaded!
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo rm /dev/BINKY
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo su
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW3root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW3# echo 0000:00:03.0 > /sys/module//e1000/drivers/pci\:e1000/bind
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW3root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW3# exit
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ sudo surm /dev/BINKYdmesg | tail -n 20[4Psudo rmmod hw3[9P./chasudo chmod 666 /dev/BINKY./cha[Klspci -s 00:03.0 -vv
+00:03.0 Ethernet controller: Intel Corporation 82540EM Gigabit Ethernet Controller (rev 02)
+	Subsystem: Intel Corporation PRO/1000 MT Desktop Adapter
+	Control: I/O+ Mem+ BusMaster+ SpecCycle- MemWINV- VGASnoop- ParErr- Stepping- SERR- FastB2B- DisINTx-
+	Status: Cap+ 66MHz+ UDF- FastB2B- ParErr- DEVSEL=medium >TAbort- <TAbort- <MAbort- >SERR- <PERR- INTx-
+	Latency: 64 (63750ns min)
+	Interrupt: pin A routed to IRQ 19
+	Region 0: Memory at f2200000 (32-bit, non-prefetchable) [size=128K]
+	Region 2: I/O ports at d020 [size=8]
+	Capabilities: <access denied>
+	Kernel driver in use: e1000
+	Kernel modules: e1000
+
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ lspci -s 00:03.0 -vv[13Psudo surm /dev/BINKYdmesg | tail -n 20
+[ 1287.823785] User read() from us 117867266
+[ 1287.823790] /dev node successfully opened!
+[ 1287.823795] led_current_val is "128"
+[ 1287.823799] User read() from us 128
+[ 1289.823330] led_current_val is "0"
+[ 1304.698702] /dev node successfully opened!
+[ 1304.698748] User read() from us 0
+[ 1304.698753] /dev node successfully opened!
+[ 1304.698758] led_current_val is "128"
+[ 1304.698762] User read() from us 128
+[ 1306.698411] led_current_val is "0"
+[ 1347.584635] Blink Driver PCI remove called
+[ 1347.584663] ECE373 HW3 module unloaded!
+[ 1424.070611] e1000 0000:00:03.0 eth0: (PCI:33MHz:32-bit) 08:00:27:5f:f3:f8
+[ 1424.070617] e1000 0000:00:03.0 eth0: Intel(R) PRO/1000 Network Connection
+[ 1424.072619] e1000 0000:00:03.0 enp0s3: renamed from eth0
+[ 1424.095121] IPv6: ADDRCONF(NETDEV_UP): enp0s3: link is not ready
+[ 1424.096950] IPv6: ADDRCONF(NETDEV_UP): enp0s3: link is not ready
+[ 1426.135063] e1000: enp0s3 NIC Link is Up 1000 Mbps Full Duplex, Flow Control: RX
+[ 1426.135625] IPv6: ADDRCONF(NETDEV_CHANGE): enp0s3: link becomes ready
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ The end
+
+Command 'The' not found, did you mean:
+
+  command 'the' from deb the
+  command 'he' from deb node-he
+
+Try: sudo apt install <deb name>
+
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW3[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW3[00m$ exit
+
+Script done on 2019-05-01 04:32:15-0700
