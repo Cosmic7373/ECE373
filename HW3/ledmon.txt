@@ -5,6 +5,7 @@ the code so you are sure that there are no security issues lurking)
 
 #
 For HW3 this was run using sudo ./ledmon -s 0000:00:03.0 -L
+Run it in a second terminal
 #
 
 sln
