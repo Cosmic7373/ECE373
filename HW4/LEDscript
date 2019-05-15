@@ -1,0 +1,20 @@
+Script started on 2019-05-15 00:22:48-0700
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW4[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW4[00m$ sudo ./ledmon -s 0000:00:03.0 -L[18Pcat ledmon.txtvim led_cleanup_script.shmon.c[Ksudo ./ledmon[5P./ledmonls[Kcd ECE373/HW3[3Psudo ./chacd ECE373/HW3ls[K./ledmonsudo ./ledmon[1Pvim ledmon.c_cleanup_script.sh[11Pcat ledmon.txtsudo ./ledmon -s 0000:00:03.0 -L[Ksudo ./ledmon -s 0000:00:03.0 -L[18Pcat ledmon.txtvim led_cleanup_script.shmon.c[Ksudo ./ledmon[5P./ledmonls[Kcd ECE373/HW3[3Psudo ./chagcc -g -o cha hw4.c
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW4[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW4[00m$ gcc -g -o cha hw4.csudo ./ledmon -s 0000:00:03.0 -L[18Pcat ledmon.txtvim led_cleanup_script.shmon.c[Ksudo ./ledmon[5P./ledmonsudo ./ledmon[5P./ledmonls[Kcd ECE373/HW3[3Psudo ./chagcc -g -o cha hw4.c[9Psudo ./cha
+Current LEDCTL value is 800080
+The GPRC reg address is 0x7f423036a074 and it's contents are 0
+The GPRC register contents are 3
+Finished
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW4[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW4[00m$ sudo ./cha
+Current LEDCTL value is 800080
+The GPRC reg address is 0x7fb880168074 and it's contents are 14
+The GPRC register contents are 0
+Finished
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW4[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW4[00m$ sudo ./cha
+Current LEDCTL value is 800080
+The GPRC reg address is 0x7f08736dc074 and it's contents are 0
+The GPRC register contents are 5
+Finished
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW4[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW4[00m$ s[Kexit
+
+Script done on 2019-05-15 00:24:57-0700
