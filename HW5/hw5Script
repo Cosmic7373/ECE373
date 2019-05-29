@@ -1,0 +1,145 @@
+Script started on 2019-05-29 02:24:58-0700
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo rmmod e1000
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ make default
+make -C /lib/modules/4.18.0-20-generic/build SUBDIRS=/home/bissbiss/ECE373/HW5 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.18.0-20-generic'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: Leaving directory '/usr/src/linux-headers-4.18.0-20-generic'
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ make cha
+gcc -g -o cha user.c
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ ls
+[0m[01;32mcha[0m    hw5.ko     hw5.mod.o  hw5Script  Makefile       Module.symvers
+hw5.c  hw5.mod.c  hw5.o      [01;32mledmon[0m     modules.order  user.c
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo insmod hw5.ko
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo insmod hw5.kols[Kmake chadefaultsudo rmmod e1000dmesg | tail -n 20
+[    8.202190] 09:10:49.117218 main     VBoxService 6.0.6 r130049 (verbosity: 0) linux.amd64 (Apr 16 2019 11:55:19) release log
+               09:10:49.117222 main     Log opened 2019-05-29T09:10:49.116695000Z
+[    8.202225] 09:10:49.117284 main     OS Product: Linux
+[    8.202244] 09:10:49.117306 main     OS Release: 4.18.0-20-generic
+[    8.202262] 09:10:49.117325 main     OS Version: #21~18.04.1-Ubuntu SMP Wed May 8 08:43:37 UTC 2019
+[    8.202287] 09:10:49.117343 main     Executable: /opt/VBoxGuestAdditions-6.0.6/sbin/VBoxService
+               09:10:49.117344 main     Process ID: 972
+               09:10:49.117344 main     Package type: LINUX_64BITS_GENERIC
+[    8.202837] 09:10:49.117888 main     6.0.6 r130049 started. Verbose level = 0
+[    8.203381] 09:10:49.118429 main     vbglR3GuestCtrlDetectPeekGetCancelSupport: Supported (#1)
+[   11.908352] rfkill: input handler disabled
+[   15.315124] ISO 9660 Extensions: Microsoft Joliet Level 3
+[   15.327662] ISO 9660 Extensions: RRIP_1991A
+[  893.426122] ECE373 HW5 loading... blink_rate = 2
+[  893.426123] Allocated 1 devices at major: 241
+[  893.426152] Blink Driver PCI Probe called
+[  893.426153] Barmask 1
+[  893.426155] mmio start: f2200000
+[  893.426155] mmio len: 20000
+[  893.426172] Initial starting led val is 7068302
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ dmesg | tail -n 20[Ksudo ./cha
+fd = 3
+2 is starting blink_rate
+5 is updated blink_rate
+wz is 4, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo ./chadmesg | tail -n 20
+[  893.426122] ECE373 HW5 loading... blink_rate = 2
+[  893.426123] Allocated 1 devices at major: 241
+[  893.426152] Blink Driver PCI Probe called
+[  893.426153] Barmask 1
+[  893.426155] mmio start: f2200000
+[  893.426155] mmio len: 20000
+[  893.426172] Initial starting led val is 7068302
+[  921.030162] HW5 file Opened--------------------
+[  921.030163] Current num secs (from init): 1559121961
+[  921.030202] User read() from us 2
+[  921.030206] HW5 file Opened--------------------
+[  921.030206] Current num secs (from init): 1559121961
+[  921.030208] blink_rate is "5"
+[  921.030209] User read() from us 5
+[  922.046770] Current num secs (from callback): 1559121962
+[  922.046802] Blink Rate is NOW 50% of 5
+[  922.046806] Repeat test--------------------0
+[  924.672206] Current num secs (from callback): 1559121965
+[  924.672226] Blink Rate is NOW 50% of 5
+[  924.672228] Repeat test--------------------1
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo su
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# echo 0000.00.03.0 > /sys/moduule/e1000/drivers/pci:e1000/unbind[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [C[C[C[C[C[C[C:03.0 > /sys/module/e1[5P000/drivers/pci:e1000/unbind\:e1000/unbind[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [17Plspci -vvvv
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho 0000.00.03.0 > /sys/moduule/e1000/drivers/pci\:e1000/unbind[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [C[C[C[C[C5 > /sys/module/hw5/para[17Pmeters/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# cat /sys/module/hw5/parameter[5Ps/blink_rate
+5
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# cat /sys/module/hw5/parameterrs/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# echo 0000.00.03.0 > /sys/module/e1000/drivers/pci:e1000/unbind[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [C[C[C[C[C[C[C:03.0 > /sys/module/e1[5P000/drivers/pci:e1000/unbind\:e1000/unbind[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [17Plspci -vvvv
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho 0000.00.03.0 > /sys/moduule/e1000/drivers/pci\:e1000/unbind[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [C[C[C[C[C5 > /sys/module/hw5/para[17Pmeters/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# cat /sys/module/hw5/parameter[5Ps/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# echo 5 > /sys/module/hw5/parameters/blink_rate[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C > /sys/module/hw5/param[1Peters/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [C[C[C[C[C2 > /sys/module/hw5/parameters/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# [C[C[C[C[C[C
+
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# echo 2 > /sys/module/hw5/paraameters/blink_rate[A]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# cat /sys/module/hw5/parameter[5Ps/blink_rate
+2
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW5root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW5# exit
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo sudmesg | tail -n 20
+[ 1001.471661] Blink Rate is NOW 50% of 5
+[ 1001.471672] Repeat test--------------------31
+[ 1004.030770] Current num secs (from callback): 1559122044
+[ 1004.030804] Blink Rate is NOW 50% of 5
+[ 1004.030807] Repeat test--------------------32
+[ 1006.591848] Current num secs (from callback): 1559122047
+[ 1006.591878] Blink Rate is NOW 50% of 2
+[ 1006.591881] Repeat test--------------------33
+[ 1007.614739] Current num secs (from callback): 1559122048
+[ 1007.614837] Blink Rate is NOW 50% of 2
+[ 1007.614841] Repeat test--------------------34
+[ 1008.639444] Current num secs (from callback): 1559122049
+[ 1008.639458] Blink Rate is NOW 50% of 2
+[ 1008.639459] Repeat test--------------------35
+[ 1009.662741] Current num secs (from callback): 1559122050
+[ 1009.662780] Blink Rate is NOW 50% of 2
+[ 1009.662784] Repeat test--------------------36
+[ 1010.686720] Current num secs (from callback): 1559122051
+[ 1010.686744] Blink Rate is NOW 50% of 2
+[ 1010.686746] Repeat test--------------------37
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo rmmod hw5
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo insmod hw5.ko blink_rate=1
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo insmod hw5.ko blink_rate=1[17Prmmod hw5dmesg | tail -n 20
+[ 1022.974907] Blink Rate is NOW 50% of 2
+[ 1022.974910] Repeat test--------------------49
+[ 1024.001682] Current num secs (from callback): 1559122064
+[ 1024.001714] Blink Rate is NOW 50% of 2
+[ 1024.001717] Repeat test--------------------50
+[ 1025.022717] Current num secs (from callback): 1559122065
+[ 1025.022746] Blink Rate is NOW 50% of 2
+[ 1025.022750] Repeat test--------------------51
+[ 1026.046716] Current num secs (from callback): 1559122066
+[ 1026.046736] Blink Rate is NOW 50% of 2
+[ 1026.046738] Repeat test--------------------52
+[ 1026.670754] Blink Driver PCI remove called
+[ 1026.672323] ECE373 HW5 module unloaded!
+[ 1039.851033] ECE373 HW5 loading... blink_rate = 1
+[ 1039.851035] Allocated 1 devices at major: 241
+[ 1039.851048] Blink Driver PCI Probe called
+[ 1039.851049] Barmask 1
+[ 1039.851050] mmio start: f2200000
+[ 1039.851051] mmio len: 20000
+[ 1039.851068] Initial starting led val is 80
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo ./cha
+fd = 3
+1 is starting blink_rate
+5 is updated blink_rate
+wz is 4, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo ./chadmesg | tail -n 20
+[ 1068.799006] Blink Rate is NOW 50% of 5
+[ 1068.799008] Repeat test--------------------4
+[ 1071.360291] Current num secs (from callback): 1559122111
+[ 1071.360313] Blink Rate is NOW 50% of 5
+[ 1071.360316] Repeat test--------------------5
+[ 1073.919142] Current num secs (from callback): 1559122114
+[ 1073.919173] Blink Rate is NOW 50% of 5
+[ 1073.919177] Repeat test--------------------6
+[ 1076.478703] Current num secs (from callback): 1559122117
+[ 1076.478723] Blink Rate is NOW 50% of 5
+[ 1076.478725] Repeat test--------------------7
+[ 1079.038754] Current num secs (from callback): 1559122119
+[ 1079.038772] Blink Rate is NOW 50% of 5
+[ 1079.038774] Repeat test--------------------8
+[ 1081.603072] Current num secs (from callback): 1559122122
+[ 1081.603079] Blink Rate is NOW 50% of 5
+[ 1081.603080] Repeat test--------------------9
+[ 1084.163362] Current num secs (from callback): 1559122124
+[ 1084.163385] Blink Rate is NOW 50% of 5
+[ 1084.163387] Repeat test--------------------10
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ sudo rmmodhw[K[K hw5
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW5[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW5[00m$ exit
+
+Script done on 2019-05-29 02:29:16-0700
