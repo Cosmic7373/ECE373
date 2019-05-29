@@ -1,7 +1,6 @@
 // Bliss Brass
 // HW2 ECE 373 4-21-19
-// Loading a module that can read/write from userspace
-// failure
+// Loading a Linux module that can read/write from userspace
 
 #include <linux/module.h>
 #include <linux/types.h>
@@ -17,24 +16,26 @@
 static struct mydev_dev {
 	struct cdev cdev;
 	/* more stuff will go in here later... */
-	int sys_int;
+	//int sys_int;
 	int syscall_val;
 } mydev;
 
 static dev_t mydev_node;
 
-/* this shows up under /sys/modules/example5/parameters */
+// This shows up under /sys/modules/hw2/parameters
+// With "hw2" seemingly coming from the hw2.c filename
+// Setting it's default to 15 and giving it permisions with the S_
 static int testPara = 15;
 module_param(testPara, int, S_IRUSR | S_IWUSR);
 
+// Currently unused but here for example purposes
 /* this doesn't appear in /sys/modules */
 static int exam_nosysfs = 15;
 module_param(exam_nosysfs, int, 0);
 
 static int example5_open(struct inode *inode, struct file *file) {
-	printk(KERN_INFO "successfully opened!\n");
-
-	mydev.sys_int = 23;
+	printk(KERN_INFO "Successfully opened!\n");
+	//mydev.sys_int = 23;
 	mydev.syscall_val = 40;
 
 	return 0;
@@ -60,9 +61,9 @@ static ssize_t example5_read(struct file *file, char __user *buf, size_t len, lo
 	ret = sizeof(int);
 	*offset += len;
 
-	/* Good to go, so printk the thingy */
+	// Printing to dmesg the current value of syscall_val
 	printk(KERN_INFO "User got from us %d\n", mydev.syscall_val);
-	printk(KERN_INFO "buf is: %d\n", buf);
+	//printk(KERN_INFO "buf is: %d\n", buf);
 
 out:
 	return ret;
@@ -97,16 +98,16 @@ static ssize_t example5_write(struct file *file, const char __user *buf, size_t 
 		ret = -EFAULT;
 		goto mem_out;
 	}
-	// Only works in dmesg?
-	printk(KERN_INFO "kbus addr: %d\n", kern_buf);
-	printk(KERN_INFO "kbus val: %d\n", *(int*)kern_buf);
-	// TESTING
+
+	//printk(KERN_INFO "kbus addr: %d\n", kern_buf);
+	//printk(KERN_INFO "kbus val: %d\n", *(int*)kern_buf);
+	// Assigning whats in the buffer to syscall_val
 	mydev.syscall_val = *(int*) kern_buf;
 	ret = len;
-	printk(KERN_INFO "sys val is \"%d\" to us\n", mydev.syscall_val);
 
+	printk(KERN_INFO "syscall_val is \"%d\"\n", mydev.syscall_val);
 	/* print what userspace gave us */
-	printk(KERN_INFO "Userspace wrote \"%d\" to us\n", kern_buf);
+	//printk(KERN_INFO "Userspace wrote \"%d\" to us\n", kern_buf);
 
 mem_out:
 	kfree(kern_buf);
@@ -114,6 +115,8 @@ out:
 	return ret;
 }
 
+// Special name "file_operations" that designates what to call when module receives any
+// of the following system calls
 /* File operations for our device */
 static struct file_operations mydev_fops = {
 	.owner = THIS_MODULE,
@@ -122,6 +125,7 @@ static struct file_operations mydev_fops = {
 	.write = example5_write,
 };
 
+// Most of this is just standard replicant code, DEVCNT sets number of minor numbers
 static int __init example5_init(void) {
 	printk(KERN_INFO "ECE373 HW2 module loading... Test Parameter = %d\n", testPara);
 
@@ -148,6 +152,7 @@ static int __init example5_init(void) {
 	return 0;
 }
 
+// Just a standard module cleanup function after a "sudo rmmod NAME"
 static void __exit example5_exit(void) {
 	/* destroy the cdev */
 	cdev_del(&mydev.cdev);

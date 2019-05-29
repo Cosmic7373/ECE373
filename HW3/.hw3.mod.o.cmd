@@ -98,6 +98,7 @@ deps_/home/bissbiss/ECE373/HW3/hw3.mod.o := \
   include/asm-generic/barrier.h \
   include/linux/kasan-checks.h \
   include/linux/bitops.h \
+  include/linux/bits.h \
   arch/x86/include/asm/bitops.h \
     $(wildcard include/config/x86/cmov.h) \
   arch/x86/include/asm/rmwcc.h \

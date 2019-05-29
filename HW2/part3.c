@@ -14,11 +14,13 @@
 extern int errno;
 
 int main() {      
-    // 
-    int sz = 0, rz = 0;
-    char *c = (char *) calloc(100, sizeof(char));
-    int *v = (int *) calloc(100, sizeof(int));
-
+    // Return value ints
+    int wz = 0, rz = 0, rz2 = 0;
+    int buffer = 17;
+    int v = 0;
+    // Also works with the below and using *v in the printf and just v in the read()
+    //int *v = (int *) calloc(100, sizeof(int));
+ 
     // HHH is the file made using:
     // sudo mknod /dev/HHH c 241 0
     // Where "HHH" is a randomly chosen name "c" is for character
@@ -27,18 +29,18 @@ int main() {
     int fd = open("/dev/HHH", O_RDWR);
  
     printf("fd = %d\n", fd); 
-
-    rz = read(fd, v, 10);
-
-    printf("int sys is %d \n", *v);
-    int daz = 17;
+    rz = read(fd, &v, 10);
+    printf("%d is starting syscall_val\n", v);
  
-    //sz = write(fd, "17'\0'", strlen("17'\0'"));
+    close(fd);
+    fd = open("/dev/HHH", O_RDWR);
+ 
     //sz = write(fd, "17'\0'", 4);
-    sz = write(fd, &daz, 4);
+    wz = write(fd, &buffer, sizeof(int));
+    rz2 = read(fd, &v, 10);
 
-    read(fd, v, 4);
-    printf("int sys is now %d and sz is %d and rz is %d\n", *v, sz, rz);
+    printf("%d is updated syscall_val\n", v);
+    printf("wz is %d, rz is %d and rz2 is %d\n", wz, rz, rz2);
       
     if (fd ==-1) { 
         // print which type of error have in a code 
