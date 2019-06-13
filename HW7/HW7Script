@@ -1,0 +1,71 @@
+Script started on 2019-06-12 15:13:47-0700
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ uname -r
+4.19.50brass
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ uname -r[3Plsmod /lib/modules/$(uname -r)/kernel/drivers/misc/ECEE
+hw5.ko
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ sudo rmmod e1000
+[sudo] password for blisslk: 
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ sudo modprobe hw5
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ lsmod
+Module                  Size  Used by
+hw5                    16384  0
+nls_utf8               16384  1
+isofs                  45056  1
+vboxvideo              36864  0
+crct10dif_pclmul       16384  0
+crc32_pclmul           16384  0
+ghash_clmulni_intel    16384  0
+pcbc                   16384  0
+snd_intel8x0           40960  2
+snd_ac97_codec        131072  1 snd_intel8x0
+ac97_bus               16384  1 snd_ac97_codec
+snd_pcm                98304  2 snd_intel8x0,snd_ac97_codec
+aesni_intel           200704  0
+aes_x86_64             20480  1 aesni_intel
+snd_seq_midi           16384  0
+snd_seq_midi_event     16384  1 snd_seq_midi
+snd_rawmidi            32768  1 snd_seq_midi
+joydev                 20480  0
+snd_seq                65536  2 snd_seq_midi,snd_seq_midi_event
+snd_seq_device         16384  3 snd_seq,snd_seq_midi,snd_rawmidi
+snd_timer              32768  2 snd_seq,snd_pcm
+snd                    77824  11 snd_seq,snd_seq_device,snd_intel8x0,snd_timer,snd_ac97_codec,snd_pcm,snd_rawmidi
+crypto_simd            16384  1 aesni_intel
+soundcore              16384  1 snd
+cryptd                 24576  3 crypto_simd,ghash_clmulni_intel,aesni_intel
+glue_helper            16384  1 aesni_intel
+vboxguest             331776  5
+intel_rapl_perf        16384  0
+input_leds             16384  0
+serio_raw              16384  0
+mac_hid                16384  0
+sch_fq_codel           20480  1
+parport_pc             32768  0
+ppdev                  20480  0
+lp                     20480  0
+parport                49152  3 parport_pc,lp,ppdev
+ip_tables              28672  0
+x_tables               36864  1 ip_tables
+autofs4                40960  2
+hid_generic            16384  0
+usbhid                 49152  0
+hid                   122880  2 usbhid,hid_generic
+vmwgfx                278528  3
+ttm                   106496  2 vmwgfx,vboxvideo
+drm_kms_helper        167936  2 vmwgfx,vboxvideo
+syscopyarea            16384  1 drm_kms_helper
+sysfillrect            16384  1 drm_kms_helper
+sysimgblt              16384  1 drm_kms_helper
+ahci                   40960  1
+libahci                32768  1 ahci
+fb_sys_fops            16384  1 drm_kms_helper
+pata_acpi              16384  0
+psmouse               151552  0
+drm                   466944  7 vmwgfx,drm_kms_helper,vboxvideo,ttm
+i2c_piix4              24576  0
+video                  40960  0
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ Tada!
+Tada!: command not found
+]0;blisslk@blisslk-VirtualBox: ~[01;32mblisslk@blisslk-VirtualBox[00m:[01;34m~[00m$ exit
+
+Script done on 2019-06-12 15:14:47-0700
