@@ -1,0 +1,1 @@
+cmd_/home/bissbiss/ECE373/HW6/hw6.ko := ld -r -m elf_x86_64  -z max-page-size=0x200000 -T ./scripts/module-common.lds  --build-id  -o /home/bissbiss/ECE373/HW6/hw6.ko /home/bissbiss/ECE373/HW6/hw6.o /home/bissbiss/ECE373/HW6/hw6.mod.o ;  true

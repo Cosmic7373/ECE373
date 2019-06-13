@@ -1,0 +1,108 @@
+Script started on 2019-06-13 02:47:59-0700
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ ls
+[0m[01;32mcha[0m    hw6.ko     hw6.mod.o  hw6.o.ur-safe  [01;32mledmon[0m    modules.order   user.c
+hw6.c  hw6.mod.c  hw6.o      hw6Script      Makefile  Module.symvers
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ ifconfig
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 10.0.2.15  netmask 255.255.255.0  broadcast 10.0.2.255
+        inet6 fe80::5fac:401b:b75a:2ca1  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:5f:f3:f8  txqueuelen 1000  (Ethernet)
+        RX packets 607  bytes 378848 (378.8 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 468  bytes 199013 (199.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+enp0s8: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.56.102  netmask 255.255.255.0  broadcast 192.168.56.255
+        inet6 fe80::f775:9089:5536:7ca9  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:8e:1e:d2  txqueuelen 1000  (Ethernet)
+        RX packets 31  bytes 5242 (5.2 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 60  bytes 7465 (7.4 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 102  bytes 9049 (9.0 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 102  bytes 9049 (9.0 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo su
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW6root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW6# echo "0000:00:03.0" > /sys/moodule/e1000/drivers/pci:e1000/unbind
+]0;root@bissbiss-VirtualBox: /home/bissbiss/ECE373/HW6root@bissbiss-VirtualBox:/home/bissbiss/ECE373/HW6# exit
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo insmod hw6.ko[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmake default
+make -C /lib/modules/4.18.0-21-generic/build SUBDIRS=/home/bissbiss/ECE373/HW6 modules
+make[1]: Entering directory '/usr/src/linux-headers-4.18.0-21-generic'
+  Building modules, stage 2.
+  MODPOST 1 modules
+make[1]: Leaving directory '/usr/src/linux-headers-4.18.0-21-generic'
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ rm cha
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ make cha
+gcc -g -o cha user.c
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo insmod hw6.ko
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo insmod hw6.ko[10Pmake cha[2Prm[C[C[C[Cmake default[5Psudo suifconfigls[Ksudo ./cha[2Pmake cha[2Prm[C[C[C[Csudo ./cha[2Pmake cha[2Prm[C[C[C[Cscript hw6Scriptls[Krm hw6scriptls[Kcd ECE373/HW6sudo ./ledmon -s 0000:00:03.0 -L[19Pcd ECE373/HW6[3Psudo ./chadmesg | tail -n 20[8Psudo ./chadmesg | tail -n 20[8Psudo ./chadmesg | tail -n 20
+               09:45:58.908631 main     Log opened 2019-06-13T09:45:58.908178000Z
+[    7.016162] 09:45:58.908686 main     OS Product: Linux
+[    7.016183] 09:45:58.908709 main     OS Release: 4.18.0-21-generic
+[    7.016203] 09:45:58.908729 main     OS Version: #22~18.04.1-Ubuntu SMP Thu May 16 15:07:19 UTC 2019
+[    7.016228] 09:45:58.908748 main     Executable: /opt/VBoxGuestAdditions-6.0.6/sbin/VBoxService
+               09:45:58.908749 main     Process ID: 1026
+               09:45:58.908749 main     Package type: LINUX_64BITS_GENERIC
+[    7.016676] 09:45:58.909194 main     6.0.6 r130049 started. Verbose level = 0
+[    7.017142] 09:45:58.909656 main     vbglR3GuestCtrlDetectPeekGetCancelSupport: Supported (#1)
+[   10.464247] rfkill: input handler disabled
+[   13.373278] ISO 9660 Extensions: Microsoft Joliet Level 3
+[   13.381872] ISO 9660 Extensions: RRIP_1991A
+[  173.525074] ECE373 HW6 loading... blink_rate = 2
+[  173.525075] Allocated 1 devices at major: 241
+[  173.525089] Blink Driver PCI Probe called
+[  173.525699] Barmask 1
+[  173.525700] mmio start: f2200000
+[  173.525701] mmio len: 20000
+[  173.525720] Initial starting led val is 7068302
+[  173.525724] Made it to DMA!
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo ./cha
+fd = 3
+6 is head 
+15 is tail 
+1551 is unpacked value
+wz is 0, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo ./cha
+fd = 3
+14 is head 
+13 is tail 
+3597 is unpacked value
+wz is 0, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ sudo ./chadmesg | tail -n 20
+[  213.430566] Length: 0x0000
+[  213.430582] Head is 14
+[  213.430611] Tail is 11
+[  213.430718] Processed descriptor 13
+[  213.430720] Status: 0x00
+[  213.430722] Length: 0x0000
+[  213.430738] Head is 14
+[  213.430753] Tail is 12
+[  219.497268] HW6 file Opened--------------------
+[  219.497317] User got HEAD from us 14
+[  219.497317] User got TAIL from us 13
+[  219.497318] User got HEAD from us 3584
+[  219.497318] User got HEAD from us 3597
+[  219.497318] User read() from us 3597
+[  219.497324] HW6 file Opened--------------------
+[  219.497331] User got HEAD from us 14
+[  219.497331] User got TAIL from us 13
+[  219.497332] User got HEAD from us 3584
+[  219.497332] User got HEAD from us 3597
+[  219.497332] User read() from us 3597
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ dmesg | tail -n 20[8Psudo ./cha
+fd = 3
+1 is head 
+13 is tail 
+269 is unpacked value
+wz is 0, rz is 4 and rz2 is 4
+]0;bissbiss@bissbiss-VirtualBox: ~/ECE373/HW6[01;32mbissbiss@bissbiss-VirtualBox[00m:[01;34m~/ECE373/HW6[00m$ exit
+
+Script done on 2019-06-13 02:49:48-0700

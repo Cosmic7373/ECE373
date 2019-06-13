@@ -39,7 +39,7 @@ static struct mydev_dev {
 } mydev;
 
 static struct myPCI {
-	struct pci_dev *pdev;
+	//struct pci_dev *pdev;
 	void *hw_addr;
 } myPci;
 
